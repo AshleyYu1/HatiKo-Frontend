@@ -6,6 +6,17 @@ __pycache__/
 # C extensions
 *.so
 
+# Virtual environment
+venv/
+
+# Flask upload/output folders
+uploads/
+debug/
+*.png
+
+# Environment variables
+.env
+
 # Distribution / packaging
 .Python
 build/
