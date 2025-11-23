@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extracted Items</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+
+    <h1>Extracted Receipt Data</h1>
+
+    {% if not items %}
+        <p>No valid items found.</p>
+        <p><a href="/">Upload another</a></p>
+    {% else %}
+
+    <form action="/compute" method="post">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Pick</th>
+                    <th>Item</th>
+                    <th class="right">Price</th>
+                    <th>Split among</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for it in items %}
+                <tr>
+                    <td>
+                        <input type="checkbox"
+                            name="pick"
+                            value="{{ loop.index0 }}"
+                            {% if selected and (loop.index0|string) in selected %}checked{% endif %}>
+                    </td>
+
+                    <td>{{ it.name }}</td>
+                    <td class="right">{{ "%.2f"|format(it.price) }}</td>
+
+                    <td>
+                        <input type="number" name="split_{{ loop.index0 }}" value="1" min="1">
+                    </td>
+
+                    <input type="hidden" name="name_{{ loop.index0 }}" value="{{ it.name }}">
+                    <input type="hidden" name="price_{{ loop.index0 }}" value="{{ it.price }}">
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <input type="hidden" name="total_rows" value="{{ items|length }}">
+        <button type="submit">Compute My Total</button>
+        <a href="/" class="footer-link">Upload another</a>
+    </form>
+
+    {% endif %}
+
+    {% if breakdown %}
+        <hr>
+        <h2>Your Breakdown</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th class="right">Item Price</th>
+                    <th>Split</th>
+                    <th class="right">Your Share</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for row in breakdown %}
+                <tr>
+                    <td>{{ row.name }}</td>
+                    <td class="right">{{ "%.2f"|format(row.price) }}</td>
+                    <td>{{ row.n }}</td>
+                    <td class="right"><strong>{{ "%.2f"|format(row.share) }}</strong></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>Total You Pay: {{ "%.2f"|format(total) }}</h3>
+    {% endif %}
+
+</div>
+</body>
+</html>

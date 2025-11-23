@@ -1,0 +1,168 @@
+/* -----------------------------
+   GLOBAL STYLES
+--------------------------------*/
+body {
+    margin: 0;
+    padding: 40px 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #e8ecf5;
+    color: #3a4a5a;
+}
+
+/* Container (white card) */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* Headings */
+h1 {
+    font-size: 42px;
+    color: #4969d6;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+h2, h3 {
+    color: #4969d6;
+}
+
+/* Links */
+a {
+    color: #6d8dfc;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* -----------------------------
+   UPLOAD CARD
+--------------------------------*/
+.upload-card {
+    background: #f5f8ff;
+    border: 2px dashed #c8d2e9;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.upload-card:hover {
+    border-color: #98ace7;
+    background: #eef3ff;
+}
+
+input[type="file"] {
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+/* -----------------------------
+   BUTTONS
+--------------------------------*/
+button {
+    background: #6d8dfc;
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 4px 15px rgba(109,141,252,0.3);
+}
+
+button:hover {
+    background: #5a7af0;
+}
+
+/* Secondary Button */
+.btn-light {
+    background: #dfe6fb;
+    color: #4a5d96;
+    box-shadow: none;
+}
+
+.btn-light:hover {
+    background: #cdd9ff;
+}
+
+/* -----------------------------
+   TABLES
+--------------------------------*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background: #f8faff;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+th {
+    background: #eef3ff;
+    padding: 14px;
+    text-align: left;
+    font-size: 15px;
+    color: #4d5f85;
+}
+
+td {
+    padding: 14px;
+    border-bottom: 1px solid #e2e6f2;
+    font-size: 15px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+input[type="number"] {
+    width: 70px;
+    padding: 6px 8px;
+    border-radius: 10px;
+    border: 1px solid #cdd6eb;
+    font-size: 15px;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.right {
+    text-align: right;
+}
+
+/* -----------------------------
+   NOTE BOX
+--------------------------------*/
+.note {
+    background: #fff6d6;
+    border: 1px solid #ffe9a4;
+    padding: 12px 18px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+/* -----------------------------
+   SPACING
+--------------------------------*/
+.footer-link {
+    margin-left: 15px;
+    font-size: 15px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #d6dceb;
+    margin: 40px 0;
+}
